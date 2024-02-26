@@ -7,8 +7,10 @@ const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_ANON_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-let { data: posts, error } = await supabase
-  .from("posts")
-  .insert([{ user_name: "CM", body: "Insert from the JS client after RLS" }]);
+let { user, error } = await supabase.auth.signUp({
+  email: "yuxin_ye+test03@protonmail.com",
+  password: "banana-forest-moon",
+});
 
-console.log(posts);
+console.log(user);
+console.log(error);
