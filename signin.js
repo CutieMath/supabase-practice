@@ -7,8 +7,8 @@ const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_ANON_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-let { data, error } = await supabase.auth.signUp({
-  email: "yuxin_ye+test03@protonmail.com",
+const { data, error } = await supabase.auth.signInWithPassword({
+  email: "yuxin_ye+test01@protonmail.com",
   password: "banana-forest-moon",
 });
 
